@@ -1,0 +1,231 @@
+/* Структура */
+
+html, body {
+	height: 100%;
+}
+body {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+}
+#wrapper {
+	flex: 1 0 auto;
+}
+footer {
+	flex: 0 0 auto;
+}
+.block {
+	width: 100%;
+}
+.container {
+	box-sizing: border-box;
+	margin:0 auto;
+	max-width: 800px; /* Задать ширину блоков */
+	min-width: 320px;
+}
+
+/* Атомарные классы */
+
+.bimg, .bimg img {
+	display: block;
+	width: 100%;
+}
+
+.field_area {
+	margin: 10px 0;
+}
+.field_area label {
+	display: block;
+	margin-bottom: 5px;
+	cursor: pointer;
+}
+.field {
+	display: block;
+	padding: 6px 6px 7px;
+	box-sizing: border-box;
+	width: 100%;
+	border: 1px solid #8f8f9d;
+	border-radius: 2px;
+}
+
+.btn {
+	padding: 6px 15px 8px;
+	display: block;
+	text-decoration: none;
+	background: #ccc;
+	border-radius: 2px;
+	border: 0;
+	cursor: pointer;
+	transition: .2s;
+	text-align: center;
+}
+.btn:hover {
+	background: #bbb;
+	text-decoration: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+.overlay .popup {
+    background: #fff;
+    padding: 15px;
+    position: relative;
+}
+.overlay .popup .close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.overlay .popup .close::before, .overlay .popup .close::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 0;
+}
+.overlay .popup .close::before {
+    transform: rotate(45deg);
+}
+.overlay .popup .close::after {
+    transform: rotate(-45deg);
+}
+
+h1 {
+	margin: 0 0 30px;
+/*	border-bottom: 2px solid #999;*/
+	padding-bottom: 15px;
+}
+h2 {
+	margin: 0 0 15px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid #999;
+}
+
+
+/* БЭМ */
+
+header {
+	margin: 15px 0 30px;
+}
+header .container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+header .name_area {
+	display: grid;
+	gap: 15px;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+}
+header #logo {
+	grid-area: 1 / 2 / 2 / 1;
+}
+header .name_area .name {
+	font-size: 1.8em;
+	grid-area: 2 / 3 / 1 / 2;
+}
+header .name_area .descr {
+	color: #999;
+	grid-area: 2 / 3 / 2 / 2;
+}
+
+#logo img {
+	display: block;
+	max-width: 70px;
+}
+
+#book_list {
+	display: flex;
+	gap: 30px;
+}
+#book_list .category_area .category {
+	display: block;
+	padding: 5px 10px 7px;
+}
+#book_list .category_area .category:hover {
+	background: #0066cc;
+	color: #fff;
+	text-decoration: none;
+}
+#book_list .inner {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 15px;
+}
+#book_list .item {
+	border: 1px solid #ccc;
+	padding: 2px;
+	position: relative;
+}
+#book_list .item h2 {
+	margin: 0;
+	color: #fff;
+	font-size: 1em;
+}
+#book_list .hover_area {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0,0,0, 0.7);
+	padding: 10px;
+	display: none;
+}
+#book_list .item:hover .hover_area {
+	display: block;
+}
+
+#book_item {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 30px;
+}
+#book_item .preview {
+	max-width: 200px;
+}
+
+footer {
+	margin-top: 30px;
+}
+footer .container {
+	padding: 15px 0;
+	border-top: 1px solid #999;
+	text-align: center;
+	color: #999;
+}
+
+/* Адаптив */
+
+@media all and (min-width: 831px) {
+	.nob {
+		display: none;
+	}
+	
+}
+@media all and (max-width: 830px) {
+	.container:not(.cpn) {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.nom {
+		display: none;
+	}
+
+}

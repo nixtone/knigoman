@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="<!-- $DESCRIPTION$ -->">
+<meta name="keywords" content="<!-- $KEYWORDS$ -->">
+<link rel="icon" type="image/png" href="favicon.png">
+<title>Книгоман</title>
+<link rel="stylesheet" href="static/custom.css">
+<link rel="stylesheet" href="static/fancy/jquery.fancybox.min.css">
+<link rel="stylesheet" href="static/slick/slick.css">
+<link rel="stylesheet" href="static/slick/slick-theme.css">
+</head>
+<body>
+<div id="wrapper">
+
+	<header>
+		<div class="container">
+			<div class="name_area">
+				<a href="/" id="logo"><img src="static/images/logo.svg" alt=""></a>
+				<div class="name">Книгоман</div>
+				<div class="descr">Любителям книг</div>
+			</div>
+			<div class="user_area">
+				<a href="#" class="auth cpp" data-pp="auth">Аутентификация</a> /
+				<a href="#" class="reg">Регистрация</a>
+			</div>
+		</div>
+	</header>
+
+	<div class="container">
+
+		<div id="book_list" class="block">
+			<div class="category_area">
+				<h2>Категории</h2>
+				<a href="#" class="category c1">Роман</a>
+				<a href="#" class="category c2">Драма</a>
+				<a href="#" class="category c3">Фантастика</a>
+			</div>
+			<div class="inner">
+				<div class="item">
+					<div class="hover_area">
+						<h2>Мартин Иден</h2>
+					</div>
+					<a href="#"><img src="static/images/upload/book/1/1.webp" alt="" class="preview bimg"></a>
+				</div>
+				<div class="item">
+					<div class="hover_area">
+						<h2>Мастер и Маргарита</h2>
+					</div>
+					<a href="#"><img src="static/images/upload/book/2/1.webp" alt="" class="preview bimg"></a>
+				</div>
+				<div class="item">
+					<div class="hover_area">
+						<h2>Мастер и Маргарита</h2>
+					</div>
+					<a href="#"><img src="static/images/upload/book/2/1.webp" alt="" class="preview bimg"></a>
+				</div>
+				<div class="item">
+					<div class="hover_area">
+						<h2>Мастер и Маргарита</h2>
+					</div>
+					<a href="#"><img src="static/images/upload/book/2/1.webp" alt="" class="preview bimg"></a>
+				</div>
+				<div class="item">
+					<div class="hover_area">
+						<h2>Мастер и Маргарита</h2>
+					</div>
+					<a href="#"><img src="static/images/upload/book/2/1.webp" alt="" class="preview bimg"></a>
+				</div>
+				<div class="item">
+					<div class="hover_area">
+						<h2>Мастер и Маргарита</h2>
+					</div>
+					<a href="#"><img src="static/images/upload/book/2/1.webp" alt="" class="preview bimg"></a>
+				</div>
+				<div class="item">
+					<div class="hover_area">
+						<h2>Мастер и Маргарита</h2>
+					</div>
+					<a href="#"><img src="static/images/upload/book/2/1.webp" alt="" class="preview bimg"></a>
+				</div>
+			</div>
+		</div>
+
+		<h1>Мастер и Маргарита</h1>
+
+		<div id="book_item" class="block">
+			<div class="preview_area">
+				<!-- 
+				<div class="slider">
+					<div>1</div>
+					<div>2</div>
+					<div>3</div>
+				</div>
+				<div class="nav">
+					<div>4</div>
+					<div>5</div>
+					<div>6</div>
+				</div>
+				
+				<div class="slider">
+					<div>
+						<a href="static/images/upload/book/2/1.webp" data-fancybox="gallery">
+							<img src="static/images/upload/book/2/1.webp" alt="" class="preview bimg">
+						</a>
+					</div>
+					<div>
+						<a href="static/images/upload/book/2/2.webp" data-fancybox="gallery">
+							<img src="static/images/upload/book/2/2.webp" alt="" class="preview bimg">
+						</a>
+					<div>
+						<a href="static/images/upload/book/2/3.webp" data-fancybox="gallery">
+							<img src="static/images/upload/book/2/3.webp" alt="" class="preview bimg">
+						</a>
+					</div>
+				</div>
+				<div class="nav">
+					<div class="wrap c1">
+						<img src="static/images/upload/book/2/1.webp" alt="" class="preview bimg">
+					</div>
+					<div class="wrap c2">
+						<img src="static/images/upload/book/2/2.webp" alt="" class="preview bimg">
+					</div>
+					<div class="wrap c3">
+						<img src="static/images/upload/book/2/3.webp" alt="" class="preview bimg">
+					</div>
+				</div>
+				 -->
+			</div>
+			<div class="descr">
+				<table>
+					<tr>
+						<td>Автор</td>
+						<td><a href="#">Булгаков Михаил Афанасьевич</a></td>
+					</tr>
+					<tr>
+						<td>Описание</td>
+						<td>...</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<div id="reg" class="block">
+			<h2>Аутентификация</h2>
+			<div class="field_area">
+				<label for="email_reg">E-mail</label>
+				<input type="text" name="email_reg" id="email_reg" class="field">
+			</div>
+			<div class="field_area">
+				<label for="password_reg">Пароль</label>
+				<input type="password" name="password_reg" id="password_reg" class="field">
+			</div>
+			<div class="field_area">
+				<label for="password2_reg">Пароль еще раз</label>
+				<input type="password" name="password2_reg" id="password2_reg" class="field">
+			</div>
+			<input type="submit" value="Войти" class="btn">
+		</div>
+
+	</div>
+	
+
+</div>
+<footer>
+	<div class="container">&copy 2024 Книгоман</div>
+</footer>
+
+<div class="overlay" style="display: none;">
+    <div class="popup">
+        <div class="close"></div>
+        <div class="inner">
+
+            <div class="auth" style="display: none;">
+            	<h2>Аутентификация</h2>
+				<div class="field_area">
+					<label for="email_auth">E-mail</label>
+					<input type="text" name="email_auth" id="email_auth" class="field">
+				</div>
+				<div class="field_area">
+					<label for="password_auth">Пароль</label>
+					<input type="password" name="password_auth" id="password_auth" class="field">
+				</div>
+				<input type="submit" value="Войти" class="btn">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="static/jquery-3.6.0.min.js"></script>
+<script src="static/fancy/jquery.fancybox.min.js"></script>
+<script src="static/slick/slick.min.js"></script>
+<script src="static/custom.js"></script>
+</body>
+</html>
