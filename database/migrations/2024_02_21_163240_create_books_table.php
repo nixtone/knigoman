@@ -19,6 +19,7 @@ return new class extends Migration
             // обложка считывается из "storage" по id кинги
             $table->foreignId('author_id')->constrained()->onDelete('cascade');
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
