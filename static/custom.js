@@ -24,7 +24,7 @@ $(document).ready(function() {
 			}
 	    ],
 	});
-	*/
+	
 	let previewSlider = "#book_item .slider",
 		previewNavSlider = "#book_item .nav";
 	$(previewSlider).slick({
@@ -42,6 +42,7 @@ $(document).ready(function() {
 		centerMode: true,
 		focusOnSelect: true
 	});
+	*/
 
     // Попап
     $(".cpp").click(function(event) {
