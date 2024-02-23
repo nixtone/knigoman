@@ -24,6 +24,13 @@ class DatabaseSeeder extends Seeder
                     'name' => "test1",
                     'email' => "test1@test.loc",
                     'password' => "test1",
+                    'is_admin' => false,
+                ],
+                [
+                    'name' => "test2",
+                    'email' => "test2@test.loc",
+                    'password' => "test2",
+                    'is_admin' => true,
                 ],
 
             ],

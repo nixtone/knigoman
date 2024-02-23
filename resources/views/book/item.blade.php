@@ -4,7 +4,7 @@
 @section('content')
 <div id="book_item" class="block">
     <div class="preview_area">
-        <a href="static/images/upload/book/2/1.webp" data-fancybox="gallery">
+        <a href="{{ asset($book->preview) }}" data-fancybox="gallery">
             <img src="{{ asset($book->preview) }}" alt="" class="preview bimg">
         </a>
     </div>

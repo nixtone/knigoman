@@ -1,0 +1,40 @@
+@import "_var.scss";
+@import "_layout.scss";
+@import "_atom.scss";
+
+/* БЭМ */
+
+header {
+    background: #122b45;
+    margin-bottom: 15px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 10px;
+    nav {
+        display: flex;
+        a {
+            color: #f9feff;
+            text-decoration: none;
+            display: block;
+            margin: 5px;
+            padding: 4px 7px 6px;
+            border-radius: 2px;
+            &:hover, &.active {
+                color: #122b45;
+                background: #f9feff;
+                text-decoration: none;
+            }
+        }
+    }
+    .user_area {
+        color: var(--color3);
+        a {
+            color: var(--color3);
+        }
+    }
+}
+
+
+

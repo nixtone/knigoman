@@ -1,0 +1,16 @@
+/* Структура */
+
+html, body {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    #wrapper {
+        flex: 1 0 auto;
+    }
+    footer {
+        flex: 0 0 auto;
+    }
+}

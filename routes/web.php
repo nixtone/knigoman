@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -47,3 +48,12 @@ Route::name('user.')->controller(UserController::class)->group(function() {
     Route::post('/signup', 'signup')->name('signup');
 });
 
+// Админка
+Route::name('admin.')->prefix('/admin')->controller(AdminController::class)->group(function() {
+    Route::get('/', 'index')->name('index');
+
+    Route::get('/book', 'bookList')->name('book');
+    Route::get('/author', 'authorList')->name('author');
+    Route::get('/category', 'categoryList')->name('category');
+    Route::get('/user', 'userList')->name('user');
+});

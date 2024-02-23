@@ -7,6 +7,7 @@
     <meta name="keywords" content="">
     <link rel="icon" type="image/ico" href="{{ asset('favicon.ico') }}">
     <title>Книгоман</title>
+    <link rel="stylesheet" href="{{ asset('static/fancy/jquery.fancybox.min.css') }}">
     @vite([
         'resources/scss/app.scss',
         'resources/js/app.js'
@@ -14,9 +15,9 @@
 </head>
 <body>
 <div id="wrapper">
+    <div class="container">
 
-    <header>
-        <div class="container">
+        <header>
             <div class="name_area">
                 <a href="/" id="logo"><img src="{{ asset('static/images/logo.svg') }}" alt=""></a>
                 <div class="name">Книгоман</div>
@@ -27,19 +28,23 @@
                     <a href="{{ route('user.reg') }}" class="reg">Регистрация</a>
                 @endguest
                 @auth
-                    Вы: <a href="{{ route('user.private') }}">{{ Auth::user()->name }}</a> /
+                    <div class="row c1">
+                        <span>Вы: </span><a href="{{ route('user.private') }}">{{ Auth::user()->name }}</a> /
                         <a href="{{ route('user.logout') }}">Выход</a>
+                    </div>
+                    @if(Auth::user()->is_admin)
+                    <div class="row c2">
+                        <a href="{{ route('admin.index') }}">админка</a>
+                    </div>
+                    @endif
                 @endauth
             </div>
-        </div>
-    </header>
+        </header>
 
-    <div class="container">
         <h1>@yield('title')</h1>
         @yield('content')
 
     </div>
-
 </div>
 <footer>
     <div class="container">&copy <?= date('Y') ?> Книгоман</div>

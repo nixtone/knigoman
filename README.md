@@ -31,7 +31,7 @@ __Задание:__ Необходимо реализовать приложен
 
 ## Деплой  
 
-1. Сгенерировать .env  
+1. Сгенерировать ".env", назначить MySQL БД  
 2. php artisan key:generate  
 3. php artisan migrate --seed  
 4. php artisan storage:link  
