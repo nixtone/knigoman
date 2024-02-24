@@ -24,16 +24,31 @@ __Задание:__ Необходимо реализовать приложен
 
 Оптимизация графики: [tinypng.com](https://tinypng.com/)  
 
-### Источники  
+### Материалы  
 
 - [Лого](https://www.svgrepo.com/svg/492785/book-and-person-summer)  
+- [Иконка редактирования](https://www.svgrepo.com/svg/505639/edit-4)  
+- [Иконка удаления](https://www.svgrepo.com/svg/505621/cross-circle)  
 
 
 ## Деплой  
 
 1. Сгенерировать ".env", назначить MySQL БД  
 2. php artisan key:generate  
-3. php artisan migrate --seed  
-4. php artisan storage:link  
-4. npm run dev  
-5. php artisan serve  
+3. composer update  
+4. php artisan migrate --seed  
+5. php artisan storage:link  
+6. npm install  
+
+## Запуск  
+
+1. npm run dev    
+2. php artisan serve  
+3. Перейти по адресу [127.0.0.1:8000](http://127.0.0.1:8000)  
+
+
+# TODO:  
+- пагинация  
+- поиск  
+- загрузка и вывод превью  
+- Ограничить адреса админки  

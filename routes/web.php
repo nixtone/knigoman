@@ -4,7 +4,10 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\AdminController;
+
+use App\Http\Controllers\admin\BookController as AdminBookController;
+use App\Http\Controllers\admin\AuthorController as AdminAuthorController;
+use App\Http\Controllers\admin\CategoryController as AdminCategoryController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -23,8 +26,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [BookController::class, 'list'])->name('index');
 
 // Книги
-Route::name('book.')->controller(BookController::class)->group(function() {
-    Route::get('/book/{book}', 'item')->name('item');
+Route::name('book.')->prefix('/book')->controller(BookController::class)->group(function() {
+    Route::get('/create', 'create')->name('create');
+    Route::get('/{book}', 'item')->name('item');
+    Route::get('/edit/{book}', 'edit')->name('edit');
+    Route::post('/store', 'store')->name('store');
+    Route::patch('/update/{book}', 'update')->name('update');
+    Route::delete('/delete/{book}', 'destroy')->name('delete');
 });
 
 // Авторы
@@ -49,11 +57,31 @@ Route::name('user.')->controller(UserController::class)->group(function() {
 });
 
 // Админка
-Route::name('admin.')->prefix('/admin')->controller(AdminController::class)->group(function() {
-    Route::get('/', 'index')->name('index');
+Route::name('admin.')->prefix('/admin')->group(function() {
 
-    Route::get('/book', 'bookList')->name('book');
+    Route::name('book.')->prefix('/book')->controller(AdminBookController::class)->group(function() {
+        Route::get('/', 'list')->name('list');
+        Route::get('/create', 'create')->name('create');
+        Route::get('/edit/{book}', 'edit')->name('edit');
+        Route::post('/store', 'store')->name('store');
+        Route::patch('/update/{book}', 'update')->name('update');
+        Route::delete('/delete/{book}', 'destroy')->name('delete');
+    });
+
+    Route::name('author.')->prefix('/author')->controller(AdminAuthorController::class)->group(function() {
+        Route::get('/', 'list')->name('list');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        /*
+        Route::get('/edit/{book}', 'edit')->name('edit');
+        Route::patch('/update/{book}', 'update')->name('update');
+        Route::delete('/delete/{book}', 'destroy')->name('delete');
+        */
+    });
+
+    /*
     Route::get('/author', 'authorList')->name('author');
     Route::get('/category', 'categoryList')->name('category');
-    Route::get('/user', 'userList')->name('user');
+    */
+
 });

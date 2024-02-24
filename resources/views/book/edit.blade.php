@@ -1,8 +1,8 @@
-@extends('admin.design')
+@extends('design')
 
 @section('title', "Редакция книги: ")
 @section('content')
-<form action="{{ route('admin.book.update', $book->id) }}" method="post">
+<form action="{{ route('book.update', $book->id) }}" method="post">
     @csrf
     @method('patch')
     <div class="field_area">

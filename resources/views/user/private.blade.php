@@ -17,7 +17,7 @@
             <td>{{ Auth::user()->created_at }}</td>
         </tr>
     </table>
-
+    <a href="{{ route('book.create') }}" class="add btn">Новая книга</a>
     @include('book.inc.area', $arBook)
 
 </div>

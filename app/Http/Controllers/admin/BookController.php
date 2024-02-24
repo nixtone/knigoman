@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\BaseController;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\BookRequest;
-use App\Models\Book;
 use App\Models\Author;
+use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,26 +15,20 @@ class BookController extends BaseController
 {
 
     public function list() {
-        $arCategory = Category::all();
         $arBook = Book::all();
-
-        return view('index', compact('arCategory', 'arBook'));
-    }
-
-    public function item(Book $book) {
-        return view('book.item', compact('book'));
+        return view('admin.book.list', compact('arBook'));
     }
 
     public function create() {
         $arAuthor = Author::all();
         $arCategory = Category::all();
-        return view('book.create', compact('arAuthor', 'arCategory'));
+        return view('admin.book.create', compact('arAuthor', 'arCategory'));
     }
 
     public function edit(Book $book) {
         $arAuthor = Author::all();
         $arCategory = Category::all();
-        return view('book.edit', compact('book', 'arAuthor', 'arCategory'));
+        return view('admin.book.edit', compact('book', 'arAuthor', 'arCategory'));
     }
 
     public function store(BookRequest $request) {
@@ -43,20 +38,19 @@ class BookController extends BaseController
         // Создание
         $createBook = $this->bookService->store($validated);
         // Переход
-        return redirect()->route('book.item', $createBook->id);
-
+        return redirect()->route('admin.book.list', $createBook->id);
     }
 
     public function update(BookRequest $request, Book $book) {
         // Обновление
         $this->bookService->update($request->validated(), $book);
         // Переход
-        return redirect()->route('book.item', $book->id);
+        return redirect()->route('admin.book.list', $book->id);
     }
 
     public function destroy(Book $book) {
         $book->delete();
-        return redirect()->route('index');
+        return redirect()->route('admin.book.list');
     }
 
 }

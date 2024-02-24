@@ -41,29 +41,46 @@ header {
 }
 
 #book_area {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    .item {
-        border: 1px solid var(--color1);
-        padding: 2px;
-        position: relative;
-        .title {
-            margin: 0;
-            color: var(--color3);
-            font-size: 1em;
-        }
-        .hover_area {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0,0,0, 0.7);
-            padding: 10px;
-            display: block;
-        }
-        &:hover .hover_area {
-            display: none;
+    .inner {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        .item {
+            border: 1px solid var(--color1);
+            padding: 2px;
+            position: relative;
+            .title {
+                margin: 0;
+                color: var(--color3);
+                font-size: 1em;
+            }
+            .hover_area {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: rgba(0,0,0, 0.7);
+                padding: 10px;
+                display: none;
+            }
+            &:hover .hover_area {
+                display: block;
+            }
+            .ico_area {
+                display: flex;
+                padding-top: 10px;
+                margin-top: 10px;
+                border-top: 1px solid #fff;
+                .ico {
+                    background: transparent;
+                    border: 0;
+                    display: block;
+                    width: 32px;
+                    height: 32px;
+                    padding: 0;
+                    cursor: pointer;
+                }
+            }
         }
     }
 }

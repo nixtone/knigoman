@@ -10,6 +10,8 @@ class Book extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function getPreviewAttribute($value) {
         // форич на случай множественных файлов
         return "/static/images/noimage.png";
