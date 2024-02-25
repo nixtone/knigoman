@@ -31,11 +31,11 @@ __Задание:__ Необходимо реализовать приложен
 ## Деплой
 
 1. Сгенерировать ".env", назначить MySQL БД
-2. php artisan key:generate
-3. composer update
-4. php artisan migrate --seed
-5. php artisan storage:link
-6. npm install
+2. composer install
+3. npm install
+4. php artisan key:generate
+5. php artisan migrate --seed
+6. php artisan storage:link
 
 
 ## Запуск
