@@ -19,10 +19,7 @@
                 <a href="{{ route('index') }}">Сайт</a>
                 <a href="{{ route('admin.book.list') }}">Книги</a>
                 <a href="{{ route('admin.author.list') }}">Авторы</a>
-{{--
-
-                <a href="{{ route('admin.category') }}">Категории</a>
-                --}}
+                <a href="{{ route('admin.category.list') }}">Категории</a>
             </nav>
 
             <div class="user_area">

@@ -11,7 +11,7 @@ class AuthorRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,21 @@ class AuthorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'string|nullable|required|max:150',
+            'birth_country' => 'string|nullable|required|max:100',
+            'descr' => 'string|nullable|max:500',
         ];
+    }
+
+    public function messages() {
+       return [
+           'name.required' => "Обязательно для заполнения",
+           'name.max' => "Ограничение до :max символов",
+
+           'birth_country.required' => "Обязательно для заполнения",
+           'birth_country.max' => "Ограничение до :max символов",
+
+           'descr.max' => "Ограничение, до :max символов",
+       ];
     }
 }

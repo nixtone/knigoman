@@ -43,16 +43,20 @@ header {
 #book_area {
     .inner {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 15px;
         .item {
             border: 1px solid var(--color1);
             padding: 2px;
             position: relative;
+            display: flex;
             .title {
                 margin: 0;
                 color: var(--color3);
                 font-size: 1em;
+            }
+            .preview_area {
+                margin: auto;
             }
             .hover_area {
                 position: absolute;

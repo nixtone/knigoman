@@ -25,7 +25,4 @@
 
     </div>
 </div>
-
-<? dump($book->preview) ?>
-
 @endsection

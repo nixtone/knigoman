@@ -34,7 +34,7 @@
                     </div>
                     @if(Auth::user()->is_admin)
                     <div class="row c2">
-                        <a href="{{ route('admin.index') }}">админка</a>
+                        <a href="{{ route('admin.book.list') }}">админка</a>
                     </div>
                     @endif
                 @endauth

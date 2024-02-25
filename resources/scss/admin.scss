@@ -36,5 +36,11 @@ header {
     }
 }
 
-
-
+#book_area {
+    .preview_area {
+        text-align: center;
+        .preview {
+            max-width: 40px;
+        }
+    }
+}

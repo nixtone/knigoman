@@ -10,12 +10,13 @@ use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class BookController extends BaseController
 {
 
     public function list() {
-        $arBook = Book::all();
+        $arBook = Book::withTrashed()->get();
         return view('admin.book.list', compact('arBook'));
     }
 
@@ -32,12 +33,7 @@ class BookController extends BaseController
     }
 
     public function store(BookRequest $request) {
-        // Валидация
-        $validated = $request->validated();
-        $validated['user_id'] = Auth::user()->id;
-        // Создание
-        $createBook = $this->bookService->store($validated);
-        // Переход
+        $createBook = $this->bookService->store($request);
         return redirect()->route('admin.book.list', $createBook->id);
     }
 
@@ -50,6 +46,16 @@ class BookController extends BaseController
 
     public function destroy(Book $book) {
         $book->delete();
+        return redirect()->route('admin.book.list');
+    }
+
+    public function restore($book) {
+        $book = Book::withTrashed()->find($book)->restore();
+        return redirect()->route('admin.book.list');
+    }
+
+    public function destroyHard($book) {
+        $this->bookService->destroyHard($book);
         return redirect()->route('admin.book.list');
     }
 

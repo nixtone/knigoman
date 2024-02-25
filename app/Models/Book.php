@@ -4,24 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
 
 class Book extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     protected $guarded = [];
 
-    public function getPreviewAttribute($value) {
-        // форич на случай множественных файлов
-        return "/static/images/noimage.png";
-        /*
-        $arFile = [];
-        foreach(Storage::files("/public/book/{$this->id}") as $key => $file) {
-            $arFile[$this->id] = "/storage/app/".$file;
-        }
-        return $arFile[array_key_first($arFile)];
-        */
+    public function getPreviewAttribute() {
+        $arFile = Storage::disk('public')->files("/book/".$this->id);
+        return $arFile ? "/storage/".$arFile[array_key_first($arFile)] : "/static/images/noimage.png";
     }
 
     public function Category() {

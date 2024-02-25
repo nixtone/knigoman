@@ -20,40 +20,32 @@ class AuthorController extends BaseController
     }
 
     public function create() {
-        $arAuthor = Author::all();
-        $arCategory = Category::all();
-        return view('admin.author.create', compact('arAuthor', 'arCategory'));
+        return view('admin.author.create');
     }
 
     public function store(AuthorRequest $request) {
-        /*
         // Валидация
         $validated = $request->validated();
-        $validated['user_id'] = Auth::user()->id;
         // Создание
-        $createBook = $this->bookService->store($validated);
+        $createAuthor = $this->authorService->store($validated);
         // Переход
-        return redirect()->route('admin.book.list', $createBook->id);
-        */
+        return redirect()->route('admin.author.list', $createAuthor->id);
     }
 
-    /*
     public function edit(Author $author) {
-        $arAuthor = Author::all();
-        $arCategory = Category::all();
-        return view('admin.author.edit', compact('author', 'arAuthor', 'arCategory'));
+        return view('admin.author.edit', compact('author'));
     }
 
-    public function update(BookRequest $request, Book $book) {
+    public function update(AuthorRequest $request, Author $author) {
         // Обновление
-        $this->bookService->update($request->validated(), $book);
+        $this->bookService->update($request->validated(), $author);
         // Переход
-        return redirect()->route('admin.book.list', $book->id);
+        return redirect()->route('admin.author.list', $author->id);
     }
 
-    public function destroy(Book $book) {
-        $book->delete();
-        return redirect()->route('admin.book.list');
+    public function destroy(Author $author) {
+        $author->delete();
+        return redirect()->route('admin.author.list');
     }
-    */
+
 }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 150);
             $table->string('birth_country', 100);
-            $table->string('descr', 500);
+            $table->string('descr', 500)->nullable();
             $table->timestamps();
         });
     }

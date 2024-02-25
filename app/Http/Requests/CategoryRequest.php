@@ -11,7 +11,7 @@ class CategoryRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,18 @@ class CategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'string|nullable|required|max:150',
+            'descr' => 'string|nullable|required|max:500'
+        ];
+    }
+
+    public function messages() {
+        return [
+            'name.required' => "Обязательно для заполнения",
+            'name.max' => "Ограничение до :max символов",
+
+            'descr.required' => "Обязательно для заполнения",
+            'descr.max' => "Ограничение до :max символов",
         ];
     }
 }

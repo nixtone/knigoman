@@ -30,6 +30,7 @@ Route::name('book.')->prefix('/book')->controller(BookController::class)->group(
     Route::get('/create', 'create')->name('create');
     Route::get('/{book}', 'item')->name('item');
     Route::get('/edit/{book}', 'edit')->name('edit');
+    Route::get('/delete_hard/{book}', 'destroyHard')->name('destroy.hard');
     Route::post('/store', 'store')->name('store');
     Route::patch('/update/{book}', 'update')->name('update');
     Route::delete('/delete/{book}', 'destroy')->name('delete');
@@ -57,11 +58,13 @@ Route::name('user.')->controller(UserController::class)->group(function() {
 });
 
 // Админка
-Route::name('admin.')->prefix('/admin')->group(function() {
+Route::middleware('IsAdmin')->name('admin.')->prefix('/admin')->group(function() {
 
     Route::name('book.')->prefix('/book')->controller(AdminBookController::class)->group(function() {
         Route::get('/', 'list')->name('list');
         Route::get('/create', 'create')->name('create');
+        Route::get('/restore/{book}', 'restore')->name('restore');
+        Route::get('/delete_hard/{book}', 'destroyHard')->name('destroy.hard');
         Route::get('/edit/{book}', 'edit')->name('edit');
         Route::post('/store', 'store')->name('store');
         Route::patch('/update/{book}', 'update')->name('update');
@@ -72,16 +75,20 @@ Route::name('admin.')->prefix('/admin')->group(function() {
         Route::get('/', 'list')->name('list');
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
-        /*
-        Route::get('/edit/{book}', 'edit')->name('edit');
-        Route::patch('/update/{book}', 'update')->name('update');
-        Route::delete('/delete/{book}', 'destroy')->name('delete');
-        */
+        Route::get('/edit/{author}', 'edit')->name('edit');
+        Route::patch('/update/{author}', 'update')->name('update');
+        Route::delete('/delete/{author}', 'destroy')->name('delete');
     });
 
-    /*
-    Route::get('/author', 'authorList')->name('author');
-    Route::get('/category', 'categoryList')->name('category');
-    */
+    Route::name('category.')->prefix('/category')->controller(AdminCategoryController::class)->group(function() {
+        Route::get('/', 'list')->name('list');
+        Route::get('/create', 'create')->name('create');
+        Route::get('/restore/{category}', 'restore')->name('restore');
+        Route::get('/delete_hard/{category}', 'destroyHard')->name('destroy.hard');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/edit/{category}', 'edit')->name('edit');
+        Route::patch('/update/{category}', 'update')->name('update');
+        Route::delete('/delete/{category}', 'destroy')->name('delete');
+    });
 
 });

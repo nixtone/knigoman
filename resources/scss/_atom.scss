@@ -12,8 +12,11 @@
 }
 
 .err {
-    margin-top: 5px;
+    margin-bottom: 5px;
     color: #ff0000;
+}
+.hidden {
+    background: #ddd;
 }
 
 table.list {
@@ -127,6 +130,36 @@ h2 {
             }
             &::after {
                 transform: rotate(-45deg);
+            }
+        }
+    }
+}
+
+.pagination_area {
+    .pagination {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+        gap: 10px;
+        li {
+            list-style: none;
+            & > * {
+                display: block;
+                padding: 10px 15px;
+            }
+            a {
+                text-decoration: none;
+                background: var(--color1);
+                color: var(--color3);
+                &:hover {
+                    background: var(--color2);
+                }
+            }
+            span {
+
+                background: var(--color4);
             }
         }
     }

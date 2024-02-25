@@ -9,13 +9,14 @@ use App\Models\Author;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class BookController extends BaseController
 {
 
     public function list() {
         $arCategory = Category::all();
-        $arBook = Book::all();
+        $arBook = Book::paginate(5);
 
         return view('index', compact('arCategory', 'arBook'));
     }
@@ -37,14 +38,8 @@ class BookController extends BaseController
     }
 
     public function store(BookRequest $request) {
-        // Валидация
-        $validated = $request->validated();
-        $validated['user_id'] = Auth::user()->id;
-        // Создание
-        $createBook = $this->bookService->store($validated);
-        // Переход
+        $createBook = $this->bookService->store($request);
         return redirect()->route('book.item', $createBook->id);
-
     }
 
     public function update(BookRequest $request, Book $book) {
@@ -56,6 +51,11 @@ class BookController extends BaseController
 
     public function destroy(Book $book) {
         $book->delete();
+        return redirect()->route('index');
+    }
+
+    public function destroyHard($book) {
+        $this->bookService->destroyHard($book);
         return redirect()->route('index');
     }
 

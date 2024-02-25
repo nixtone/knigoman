@@ -22,11 +22,31 @@ class BookRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'string',
-            'publish_year' => 'integer',
-            'descr' => 'string',
+            'preview' => 'file|max:500',
+            'name' => 'string|nullable|required|unique:books,name|max:150',
+            'publish_year' => 'integer|nullable|required|max:9999',
+            'descr' => 'string|nullable|required|max:2000',
             'author_id' => 'integer',
             'category_id' => 'integer'
         ];
     }
+
+    public function messages() {
+        return [
+            'preview.max' => "Файл не должен превышать :max килобайт",
+
+            'name.max' => "Ограничение до :max символов",
+            'name.required' => "Обязательно для заполнения",
+            'name.unique' => "Такая книга уже внесена",
+
+            'publish_year.max' => "Ограничение до 4 символов",
+            'publish_year.integer' => "Нужно ввести цифру",
+            'publish_year.required' => "Обязательно для заполнения",
+
+            'descr.max' => "Ограничение до :max символов",
+            'descr.required' => "Обязательно для заполнения",
+
+        ];
+    }
+
 }
